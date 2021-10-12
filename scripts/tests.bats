@@ -12,6 +12,14 @@
   node --version | grep $NODE_VERSION_NUM
 }
 
+@test "yarn version" {
+  if [[ -e $NODE_VERSION_NUM ]]; then
+    skip "node is not installed"
+  fi
+
+  yarn --version
+}
+
 @test "ruby version" {
   if [ -e $RUBY_VERSION_NUM ] ; then
     skip "ruby not installed"

@@ -22,6 +22,7 @@ if [ ! -e $NODE_VERSION_NUM ] ; then
     ./configure && \
     make -j4 && \
     make install && \
+    npm install -g yarn && \
     cd .. && \
     rm -r node-v$NODE_VERSION_NUM"
 fi
