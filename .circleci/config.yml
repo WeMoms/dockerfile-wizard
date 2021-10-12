@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: ruby
 
-  IMAGE_TAG: 2.6.5-node-browsers
+  IMAGE_TAG: 2.6.5-node-browsers-001
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/ruby:2.6.5-node-browsers
+      - image: $DOCKER_USERNAME/ruby:2.6.5-node-browsers-001
         environment:
           <<: *image_config
 
