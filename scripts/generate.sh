@@ -5,7 +5,7 @@ echo "FROM buildpack-deps:$(awk -F'_' '{print tolower($2)}' <<< $LINUX_VERSION)"
 echo "RUN apt-get update && apt-get install -y net-tools"
 
 if [ ! -e $RUBY_VERSION_NUM ] ; then
-    echo "RUN apt-get install -y libssl-dev && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
+    echo "RUN apt-get install -y libssl-dev g++ && wget http://ftp.ruby-lang.org/pub/ruby/$(awk -F'.' '{ print $1"."$2 }' <<< $RUBY_VERSION_NUM)/ruby-$RUBY_VERSION_NUM.tar.gz && \
     tar -xzvf ruby-$RUBY_VERSION_NUM.tar.gz && \
     cd ruby-$RUBY_VERSION_NUM/ && \
     ./configure && \
@@ -25,15 +25,15 @@ fi
 
 if [ ! -e $NODE_VERSION_NUM ] ; then
     echo "RUN wget https://nodejs.org/dist/v$NODE_VERSION_NUM/node-v$NODE_VERSION_NUM.tar.gz && \
-    tar -xzvf node-v$NODE_VERSION_NUM.tar.gz && \
+    tar -xzvf node-v$NODE_VERSION_NUM.tar.gz -C node_v$NODE_VERSION_NUM_DIR && \
     rm node-v$NODE_VERSION_NUM.tar.gz && \
-    cd node-v$NODE_VERSION_NUM && \
+    cd node_v$NODE_VERSION_NUM_DIR && \
     ./configure && \
     make -j4 && \
     make install && \
     npm install -g yarn && \
     cd .. && \
-    rm -r node-v$NODE_VERSION_NUM"
+    rm -r node_v$NODE_VERSION_NUM_DIR"
 fi
 
 # if [ ! -e $PHP_VERSION_NUM ] ; then
