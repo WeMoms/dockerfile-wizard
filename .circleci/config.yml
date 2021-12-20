@@ -6,7 +6,7 @@ image_config: &image_config
 
   IMAGE_NAME: ruby
 
-  IMAGE_TAG: 2.6.5-node-browsers-001
+  IMAGE_TAG: 2.6.5-node-browsers-002
 
   # NOTE: if you're modifying this config.yml file manually
   # rather than using the included setup script,
@@ -17,9 +17,9 @@ image_config: &image_config
 
   RUBY_VERSION_NUM: 2.6.5
 
-  NODE_VERSION_NUM: 10.24.1
+  NODE_VERSION_NUM: 16.13.1
 
-  # PYTHON_VERSION_NUM: # pick a version from https://python.org/ftp/python
+  PYTHON_VERSION_NUM: 3.9.9 # pick a version from https://python.org/ftp/python
 
   JAVA: false
 
@@ -54,7 +54,7 @@ jobs:
 
   test_image:
     docker:
-      - image: $DOCKER_USERNAME/ruby:2.6.5-node-browsers-001
+      - image: $DOCKER_USERNAME/ruby:2.6.5-node-browsers-002
         environment:
           <<: *image_config
 
