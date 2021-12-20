@@ -25,7 +25,7 @@ fi
 
 if [ ! -e $NODE_VERSION_NUM ] ; then
     echo "RUN wget https://nodejs.org/dist/v$NODE_VERSION_NUM/node-v$NODE_VERSION_NUM.tar.gz && \
-    tar -xzvf node-v$NODE_VERSION_NUM.tar.gz -C node_v$NODE_VERSION_NUM_DIR && \
+    mkdir node_v$NODE_VERSION_NUM_DIR && tar -xzvf node-v$NODE_VERSION_NUM.tar.gz -C node_v$NODE_VERSION_NUM_DIR && \
     rm node-v$NODE_VERSION_NUM.tar.gz && \
     cd node_v$NODE_VERSION_NUM_DIR && \
     ./configure && \
