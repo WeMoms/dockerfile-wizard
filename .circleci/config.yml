@@ -20,7 +20,7 @@ image_config: &image_config
   NODE_VERSION_NUM: 16.13.1
   NODE_VERSION_NUM_DIR: 16_13_1
 
-  PYTHON_VERSION_NUM: 3.10.1 # pick a version from https://python.org/ftp/python
+  # PYTHON_VERSION_NUM: 3.10.1 # pick a version from https://python.org/ftp/python
 
   JAVA: false
 

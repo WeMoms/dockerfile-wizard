@@ -20,27 +20,40 @@ if [ ! -e $RUBY_VERSION_NUM ] ; then
     ruby -v"
 fi
 
-if [ ! -e $PYTHON_VERSION_NUM ] ; then
-    echo "RUN wget https://www.python.org/ftp/python/$PYTHON_VERSION_NUM/Python-$PYTHON_VERSION_NUM.tgz && \
-    tar xzf Python-$PYTHON_VERSION_NUM.tgz && \
-    rm Python-$PYTHON_VERSION_NUM.tgz && \
-    cd Python-$PYTHON_VERSION_NUM && \
-    ./configure && \
-    make install"
-fi
+# if [ ! -e $PYTHON_VERSION_NUM ] ; then
+#     echo "RUN wget https://www.python.org/ftp/python/$PYTHON_VERSION_NUM/Python-$PYTHON_VERSION_NUM.tgz && \
+#     tar xzf Python-$PYTHON_VERSION_NUM.tgz && \
+#     rm Python-$PYTHON_VERSION_NUM.tgz && \
+#     cd Python-$PYTHON_VERSION_NUM && \
+#     ./configure && \
+#     make install"
+# fi
 
 if [ ! -e $NODE_VERSION_NUM ] ; then
     echo "RUN wget https://nodejs.org/dist/v$NODE_VERSION_NUM/node-v$NODE_VERSION_NUM.tar.gz && \
-    mkdir node_v$NODE_VERSION_NUM_DIR && tar -xzvf node-v$NODE_VERSION_NUM.tar.gz -C node_v$NODE_VERSION_NUM_DIR --strip-components=1 && \
+    tar -xzvf node-v$NODE_VERSION_NUM.tar.gz && \
     rm node-v$NODE_VERSION_NUM.tar.gz && \
-    cd node_v$NODE_VERSION_NUM_DIR && \
+    cd node-v$NODE_VERSION_NUM && \
     ./configure && \
     make -j4 && \
     make install && \
     npm install -g yarn && \
     cd .. && \
-    rm -r node_v$NODE_VERSION_NUM_DIR"
+    rm -r node-v$NODE_VERSION_NUM"
 fi
+
+# if [ ! -e $NODE_VERSION_NUM ] ; then
+#     echo "RUN wget https://nodejs.org/dist/v$NODE_VERSION_NUM/node-v$NODE_VERSION_NUM.tar.gz && \
+#     mkdir node_v$NODE_VERSION_NUM_DIR && tar -xzvf node-v$NODE_VERSION_NUM.tar.gz -C node_v$NODE_VERSION_NUM_DIR --strip-components=1 && \
+#     rm node-v$NODE_VERSION_NUM.tar.gz && \
+#     cd node_v$NODE_VERSION_NUM_DIR && \
+#     ./configure && \
+#     make -j4 && \
+#     make install && \
+#     npm install -g yarn && \
+#     cd .. && \
+#     rm -r node_v$NODE_VERSION_NUM_DIR"
+# fi
 
 # if [ ! -e $PHP_VERSION_NUM ] ; then
 #     wget "http://php.net/distributions/php-${PHP_VERSION_NUM}.tar.xz"
